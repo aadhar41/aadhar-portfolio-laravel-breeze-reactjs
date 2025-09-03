@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="blogDetailTitle">Blog Post - Aadhar Gaur</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--white) !important;
+            background: var(--gradient);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="none"><path d="M0,0 L1000,0 L1000,80 Q500,120 0,80 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .lead {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* Blog Detail Specific Styles */
+        .blog-detail-container {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            margin-top: -60px;
+            /* Pull it up into the hero section slightly */
+            position: relative;
+            z-index: 10;
+        }
+
+        .blog-detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .blog-detail-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .blog-detail-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .blog-detail-meta .category-badge {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+
+        .blog-detail-content h2,
+        .blog-detail-content h3 {
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-detail-content p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .blog-detail-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .blog-detail-content ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .blog-detail-content code {
+            background-color: var(--bg-light);
+            padding: 3px 6px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        .blog-detail-content pre {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gradient);
+            color: var(--bg-light);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-light);
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .lead {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .blog-detail-container {
+                padding: 1.5rem;
+                margin-top: -30px;
+            }
+
+            .blog-detail-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Aadhar Gaur</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 text-center hero-content">
+                    <h1 id="blogPostTitle"></h1>
+                    <p class="lead" id="blogPostExcerpt"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pt-0">
+        <div class="container">
+            <div class="blog-detail-container" data-aos="fade-up">
+                <img id="blogPostImage" src="" alt="Blog Post Image" class="blog-detail-image">
+
+                <div class="blog-detail-meta">
+                    <span id="blogPostCategory" class="category-badge"></span>
+                    <span id="blogPostDate"><i class="far fa-calendar-alt"></i> </span>
+                    <span id="blogPostReadTime"><i class="far fa-clock"></i> </span>
+                </div>
+
+                <div class="blog-detail-content" id="blogPostContent">
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="blog.html" class="btn btn-primary" style="background: var(--gradient); border:none;">
+                        <i class="fas fa-arrow-left me-2"></i> Back to Blog
+                    </a>
+                </div>
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-exclamation-circle"></i>
+                <h4>Blog Post Not Found</h4>
+                <p>The article you are looking for does not exist.</p>
+                <a href="blog.html" class="btn btn-primary"
+                    style="background: var(--gradient); border:none; margin-top: 1rem;">Back to Blog List</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h5 class="fw-bold mb-2 text-primary">Aadhar Gaur</h5>
+                    <p class="mb-0 text-secondary">Senior PHP Developer sharing knowledge and insights about web
+                        development.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <nav
+                        class="footer-nav mb-3 d-inline-flex flex-wrap gap-2 justify-content-lg-end justify-content-center">
+
+                        <a href="index.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Home</a>
+                        <a href="about.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">About</a>
+                        <a href="projects.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Projects</a>
+                        <a href="blog.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Blog</a>
+                        <a href="contact.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Contact</a>
+                    </nav>
+                    <div class="social-links">
+                        <a href="mailto:aadhar41@gmail.com" title="Email"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/aadhar-gaur" target="_blank" title="LinkedIn"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="tel:+917737138843" title="Phone"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://github.com/aadhar-gaur" target="_blank" title="GitHub"
+                            class="btn btn-outline-light btn-sm rounded-circle">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 small text-secondary">&copy; 2025 Aadhar Gaur. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Blog Detail Page JS logic
+
+        // Sample blog data (must be consistent with blog.html)
+        const blogPosts = [
+            {
+                id: 1,
+                title: "Advanced Laravel Performance Optimization Techniques",
+                excerpt: "Discover powerful methods to boost your Laravel application's performance, from database optimization to caching strategies.",
+                category: "laravel",
+                date: "2025-06-08",
+                readTime: "8 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%23667eea'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='Arial'>Laravel</text></svg>",
+                content: `
+                    <p>Optimizing Laravel application performance is crucial for user experience and scalability. This article delves into various techniques to significantly enhance your application's speed and efficiency.</p>
+                    <h2>Database Optimization</h2>
+                    <p>Database queries are often the bottleneck. Ensure you are:</p>
+                    <ul>
+                        <li>Using proper indexing on frequently queried columns.</li>
+                        <li>Eager loading relationships to avoid N+1 query problems.</li>
+                        <li>Batching inserts and updates when dealing with large datasets.</li>
+                        <li>Using database profiling tools to identify slow queries.</li>
+                    </ul>
+                    <h2>Caching Strategies</h2>
+                    <p>Caching can drastically reduce the load on your database and server.</p>
+                    <pre><code>// Example of route caching
+php artisan route:cache
+
+// Example of config caching
+php artisan config:cache
+
+// Example of view caching
+php artisan view:cache</code></pre>
+                    <p>Consider using Redis or Memcached for application-level caching, especially for frequently accessed data that doesn't change often.</p>
+                    <h2>Code Optimization</h2>
+                    <p>Writing efficient PHP code is fundamental. This includes:</p>
+                    <ol>
+                        <li>Minimizing heavy computations within loops.</li>
+                        <li>Using efficient algorithms and data structures.</li>
+                        <li>Leveraging Laravel's built-in features like queues for long-running tasks.</li>
+                    </ol>
+                    <h3>Frontend Optimization</h3>
+                    <p>Don't forget frontend optimizations such as minifying CSS/JS, lazy loading images, and using a CDN.</p>
+                `
+            },
+            {
+                id: 2,
+                title: "Building Scalable RESTful APIs with PHP",
+                excerpt: "Learn best practices for creating robust and scalable APIs that can handle thousands of requests efficiently.",
+                category: "api",
+                date: "2025-06-05",
+                readTime: "12 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%23764ba2'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='Arial'>API</text></svg>",
+                content: `
+                    <p>Building scalable RESTful APIs is crucial for applications expected to grow. This article covers architectural patterns and best practices to ensure your PHP APIs remain performant and maintainable under heavy load.</p>
+                    <h2>Statelessness</h2>
+                    <p>REST APIs should be stateless. This means each request from a client to a server must contain all the information needed to understand the request, and the server should not store any client context between requests.</p>
+                    <h2>Resource-Based URIs</h2>
+                    <p>Design your URIs around resources. For example:</p>
+                    <pre><code>GET /users
+GET /users/{id}
+POST /users
+PUT /users/{id}
+DELETE /users/{id}</code></pre>
+                    <h2>Authentication and Authorization</h2>
+                    <p>Implement robust authentication (e.g., OAuth 2.0, JWT) and authorization mechanisms to secure your API endpoints.</p>
+                    <h3>Version Control</h3>
+                    <p>Version your APIs (e.g., <code>/v1/users</code>) to allow for backward compatibility and smooth transitions for consumers.</p>
+                    <p>Always document your API clearly using tools like Swagger/OpenAPI.</p>
+                `
+            },
+            {
+                id: 3,
+                title: "MySQL Query Optimization: From Slow to Lightning Fast",
+                excerpt: "Transform your slow database queries into high-performance operations with these proven optimization strategies.",
+                category: "database",
+                date: "2025-06-03",
+                readTime: "10 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%23e74c3c'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='Arial'>MySQL</text></svg>",
+                content: `
+                    <p>Slow MySQL queries can cripple application performance. This guide provides actionable strategies to identify and optimize your database queries for maximum speed.</p>
+                    <h2>Indexing</h2>
+                    <p>The most fundamental optimization is proper indexing. Use <code>EXPLAIN</code> to see how MySQL executes your queries and identify missing indexes.</p>
+                    <pre><code>EXPLAIN SELECT * FROM users WHERE email = 'test@example.com';</code></pre>
+                    <p>Add indexes to columns used in <code>WHERE</code> clauses, <code>JOIN</code> conditions, and <code>ORDER BY</code> clauses.</p>
+                    <h2>Avoid SELECT *</h2>
+                    <p>Only select the columns you need. This reduces the amount of data transferred and processed.</p>
+                    <pre><code>-- Bad
+SELECT * FROM products WHERE category_id = 1;
+
+-- Good
+SELECT id, name, price FROM products WHERE category_id = 1;</code></pre>
+                    <h3>Limit and Offset for Pagination</h3>
+                    <p>For large tables, using <code>LIMIT</code> with a large <code>OFFSET</code> can be slow. Consider alternative pagination strategies.</p>
+                    <p>Regularly analyze and optimize your tables with <code>OPTIMIZE TABLE</code>.</p>
+                `
+            },
+            {
+                id: 4,
+                title: "PHP 8.3 New Features Every Developer Should Know",
+                excerpt: "Explore the latest PHP 8.3 features including readonly classes, new array functions, and performance improvements.",
+                category: "php",
+                date: "2025-06-01",
+                readTime: "6 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%23667eea'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='Arial'>PHP 8.3</text></svg>",
+                content: `
+                    <p>PHP 8.3 brings a host of new features and improvements that make development faster and more secure. Let's dive into some of the most notable changes.</p>
+                    <h2>Readonly Classes</h2>
+                    <p>You can now declare entire classes as <code>readonly</code>, making all their properties readonly. This is excellent for value objects and DTOs.</p>
+                    <pre><code>readonly class UserData
+{
+    public function __construct(
+        public string $name,
+        public string $email,
+    ) {}
+}</code></pre>
+                    <h2>New Functions</h2>
+                    <p>Several new functions have been added, including <code>json_validate()</code> for efficient JSON validation without decoding.</p>
+                    <h3>Performance Enhancements</h3>
+                    <p>As with every new PHP version, 8.3 includes significant performance improvements, leading to faster execution times for your applications.</p>
+                    <p>Staying updated with the latest PHP versions ensures you benefit from performance gains and new language features.</p>
+                `
+            },
+            {
+                id: 5,
+                title: "Laravel Livewire: Building Dynamic UIs Without JavaScript",
+                excerpt: "Create interactive, dynamic user interfaces using Laravel Livewire without writing a single line of JavaScript.",
+                category: "laravel",
+                date: "2025-05-29",
+                readTime: "15 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%23764ba2'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='Arial'>Livewire</text></svg>",
+                content: `
+                    <p>Laravel Livewire is a full-stack framework for Laravel that makes building dynamic interfaces a breeze, by allowing you to write most of your interactivity in PHP.</p>
+                    <h2>How Livewire Works</h2>
+                    <p>Livewire components are essentially PHP classes that render a Blade view. When an action occurs (e.g., a button click), Livewire makes an AJAX request to the server, re-renders the component, and efficiently updates the DOM.</p>
+                    <pre><code>// Example Livewire component
+&lt;div&gt;
+    &lt;button wire:click="increment"&gt;+&lt;/button&gt;
+    &lt;h1&gt;{{ $count }}&lt;/h1&gt;
+&lt;/div&gt;</code></pre>
+                    <h2>Benefits</h2>
+                    <ul>
+                        <li>Write less JavaScript.</li>
+                        <li>Rapid development of interactive features.</li>
+                        <li>Seamless integration with Laravel ecosystem.</li>
+                    </ul>
+                    <h3>Use Cases</h3>
+                    <p>Livewire is ideal for forms, search interfaces, real-time dashboards, and other dynamic UI elements.</p>
+                `
+            },
+            {
+                id: 6,
+                title: "Top 10 PHP Security Best Practices for 2025",
+                excerpt: "Essential security practices every PHP developer must implement to protect their applications from common vulnerabilities.",
+                category: "tips",
+                date: "2025-05-27",
+                readTime: "9 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233498db'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='Arial'>Security</text></svg>",
+                content: `
+                    <p>Application security is paramount. As PHP evolves, so do the threats. Here are the top 10 security best practices for PHP developers in 2025.</p>
+                    <ol>
+                        <li><strong>Input Validation and Sanitization:</strong> Always validate and sanitize all user input to prevent SQL injection, XSS, and other attacks.</li>
+                        <li><strong>Prepared Statements:</strong> Use prepared statements with parameterized queries for all database interactions.</li>
+                        <li><strong>Strong Password Hashing:</strong> Never store plain-text passwords. Use strong hashing algorithms like <code>password_hash()</code>.</li>
+                        <li><strong>Error Reporting:</strong> Disable detailed error reporting in production environments to prevent information disclosure.</li>
+                        <li><strong>Session Management:</strong> Implement secure session management, including regenerating session IDs upon login.</li>
+                        <li><strong>Protect Against CSRF:</strong> Implement CSRF tokens in all forms to prevent cross-site request forgery attacks.</li>
+                        <li><strong>Secure File Uploads:</strong> Validate file types, sizes, and scan for malicious content on uploaded files.</li>
+                        <li><strong>Keep Software Updated:</strong> Regularly update PHP, frameworks, and libraries to patch known vulnerabilities.</li>
+                        <li><strong>Least Privilege Principle:</strong> Ensure your application runs with the minimum necessary permissions.</li>
+                        <li><strong>Security Headers:</strong> Implement HTTP security headers like Content Security Policy (CSP), X-XSS-Protection, etc.</li>
+                    </ol>
+                    <p>Regular security audits and penetration testing are also highly recommended.</p>
+                `
+            },
+            {
+                id: 7,
+                title: "Creating Custom Artisan Commands in Laravel",
+                excerpt: "Step-by-step tutorial on building powerful custom Artisan commands to automate your Laravel development workflow.",
+                category: "tutorial",
+                date: "2025-05-25",
+                readTime: "11 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%23e67e22'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='Arial'>Artisan</text></svg>",
+                content: `
+                    <p>Laravel Artisan commands are a powerful way to automate repetitive tasks and extend your application's functionality from the command line. This tutorial will guide you through creating your own custom commands.</p>
+                    <h2>Generating a Command</h2>
+                    <p>Use the Artisan command to create a new command class:</p>
+                    <pre><code>php artisan make:command SendDailyReports</code></pre>
+                    <p>This will create a new file in <code>app/Console/Commands/SendDailyReports.php</code>.</p>
+                    <h2>Defining the Command</h2>
+                    <p>Inside the command class, you'll define the <code>$signature</code> (how you call the command) and the <code>$description</code>.</p>
+                    <pre><code>protected $signature = 'reports:daily {--queue}';
+protected $description = 'Sends daily reports to users.';</code></pre>
+                    <h3>Handling Logic in the <code>handle</code> Method</h3>
+                    <p>All your command's logic goes into the <code>handle()</code> method. You can interact with the user, retrieve options, and call other services.</p>
+                    <pre><code>public function handle()
+{
+    $this->info('Sending daily reports...');
+    // Your logic here
+    $this->info('Daily reports sent successfully!');
+}</code></pre>
+                    <p>Custom Artisan commands greatly enhance developer productivity.</p>
+                `
+            },
+            {
+                id: 8,
+                title: "Docker for PHP Developers: Complete Setup Guide",
+                excerpt: "Learn how to containerize your PHP applications with Docker for consistent development and deployment environments.",
+                category: "tutorial",
+                date: "2025-05-23",
+                readTime: "13 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%232c3e50'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='Arial'>Docker</text></svg>",
+                content: `
+                    <p>Docker has become an indispensable tool for modern web development, offering consistent environments from development to production. This guide provides a complete setup for PHP developers.</p>
+                    <h2>What is Docker?</h2>
+                    <p>Docker allows you to package an application and its dependencies into a container, ensuring it runs identically regardless of where it's deployed.</p>
+                    <h2>Setting up <code>docker-compose.yml</code></h2>
+                    <p>A <code>docker-compose.yml</code> file orchestrates multiple Docker containers (e.g., PHP-FPM, Nginx, MySQL, Redis).</p>
+                    <pre><code>version: '3.8'
+services:
+    app:
+        build: .
+        volumes:
+            - .:/var/www/html
+        ports:
+            - "9000:9000"
+    nginx:
+        image: nginx:latest
+        volumes:
+            - .:/var/www/html
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        ports:
+            - "80:80"
+        depends_on:
+            - app
+    mysql:
+        image: mysql:8.0
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: myapp</code></pre>
+                    <h3>Building and Running</h3>
+                    <p>Navigate to your project root and run:</p>
+                    <pre><code>docker-compose up -d --build</code></pre>
+                    <p>This will build your images and start the containers in the background.</p>
+                    <p>Docker simplifies dependency management and onboarding for new team members.</p>
+                `
+            },
+            {
+                id: 9,
+                title: "Advanced PHP Design Patterns in Real-World Applications",
+                excerpt: "Implement sophisticated design patterns in PHP to create maintainable, scalable, and robust applications.",
+                category: "php",
+                date: "2025-05-21",
+                readTime: "14 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%23667eea'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='18' font-family='Arial'>Patterns</text></svg>",
+                content: `
+                    <p>Design patterns are reusable solutions to common problems in software design. Applying them in PHP can lead to more robust, maintainable, and scalable applications.</p>
+                    <h2>Singleton Pattern</h2>
+                    <p>Ensures a class has only one instance and provides a global point of access to that instance.</p>
+                    <pre><code>class Singleton
+{
+    private static $instance;
+
+    private function __construct() {}
+
+    public static function getInstance()
+    {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+}</code></pre>
+                    <h2>Factory Method Pattern</h2>
+                    <p>Defines an interface for creating an object, but lets subclasses decide which class to instantiate. The Factory Method lets a class defer instantiation to subclasses.</p>
+                    <h3>Observer Pattern</h3>
+                    <p>Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.</p>
+                    <p>Understanding and applying these patterns elevates your PHP development skills.</p>
+                `
+            },
+            {
+                id: 10,
+                title: "GraphQL vs REST: When to Choose What",
+                excerpt: "Compare GraphQL and REST APIs, understand their strengths and weaknesses, and learn when to use each approach.",
+                category: "api",
+                date: "2025-05-19",
+                readTime: "7 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%23764ba2'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='Arial'>GraphQL</text></svg>",
+                content: `
+                    <p>Choosing between GraphQL and REST for your API design can be a critical decision. Both have distinct advantages and are suited for different scenarios.</p>
+                    <h2>REST (Representational State Transfer)</h2>
+                    <ul>
+                        <li><strong>Pros:</strong> Simplicity, widespread adoption, caching support, HTTP standard adherence.</li>
+                        <li><strong>Cons:</strong> Over-fetching (getting more data than needed), under-fetching (multiple requests for related data).</li>
+                        <li><strong>When to use:</strong> Simple applications, public APIs where consumers need predefined data structures, when caching is a high priority.</li>
+                    </ul>
+                    <h2>GraphQL</h2>
+                    <ul>
+                        <li><strong>Pros:</strong> Efficient data fetching (request exactly what you need), single endpoint, strong typing, introspection.</li>
+                        <li><strong>Cons:</strong> More complex to set up, caching can be more involved, potentially higher learning curve.</li>
+                        <li><strong>When to use:</strong> Complex systems with many interconnected data sources, mobile applications with limited bandwidth, rapidly evolving UIs.</li>
+                    </ul>
+                    <h3>Conclusion</h3>
+                    <p>Neither is inherently "better" than the other. The best choice depends on your project's specific requirements, team expertise, and anticipated data consumption patterns.</p>
+                `
+            },
+            {
+                id: 11,
+                title: "Implementing Redis Caching in Laravel Applications",
+                excerpt: "Boost your Laravel app performance with Redis caching strategies, from basic setup to advanced implementation techniques.",
+                category: "laravel",
+                date: "2025-05-17",
+                readTime: "10 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%23e74c3c'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='Arial'>Redis</text></svg>",
+                content: `
+                    <p>Redis is an open-source, in-memory data structure store, used as a database, cache, and message broker. Integrating Redis for caching in Laravel can significantly improve application response times.</p>
+                    <h2>Redis Setup</h2>
+                    <p>First, ensure Redis is installed and running on your server. In your Laravel <code>.env</code> file, configure Redis connection details:</p>
+                    <pre><code>CACHE_DRIVER=redis
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379</code></pre>
+                    <h2>Basic Caching</h2>
+                    <p>Laravel's Cache facade provides a simple API for caching data:</p>
+                    <pre><code>use Illuminate\\Support\\Facades\\Cache;
+
+$users = Cache::remember('all_users', $minutes, function () {
+    return App\\Models\\User::all();
+});</code></pre>
+                    <h3>Advanced Caching Strategies</h3>
+                    <ul>
+                        <li><strong>Cache Tags:</strong> Group related cached items to invalidate them together.</li>
+                        <li><strong>Cache Events:</strong> Listen for cache events to log or perform actions.</li>
+                        <li><strong>Atomic Locks:</strong> Prevent race conditions when accessing shared resources.</li>
+                    </ul>
+                    <p>Leveraging Redis effectively can transform the performance of data-intensive Laravel applications.</p>
+                `
+            },
+            {
+                id: 12,
+                title: "Database Migration Strategies for Large Applications",
+                excerpt: "Learn effective database migration strategies for large-scale applications without downtime or data loss.",
+                category: "database",
+                date: "2025-05-15",
+                readTime: "12 min read",
+                image: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'><rect width='400' height='200' fill='%233498db'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='18' font-family='Arial'>Migration</text></svg>",
+                content: `
+                    <p>Database migrations are essential for evolving your database schema, but for large-scale applications, they require careful planning to avoid downtime and data integrity issues.</p>
+                    <h2>Key Principles</h2>
+                    <ul>
+                        <li><strong>Backward Compatibility:</strong> Ensure your application can run with both the old and new schema during the transition.</li>
+                        <li><strong>Small, Incremental Changes:</strong> Break down large migrations into smaller, manageable steps.</li>
+                        <li><strong>Automated Testing:</strong> Thoroughly test migrations in non-production environments.</li>
+                    </ul>
+                    <h2>Zero-Downtime Migrations</h2>
+                    <p>For critical applications, aim for zero-downtime deployments. This often involves a multi-step process:</p>
+                    <ol>
+                        <li>Add new column (nullable initially).</li>
+                        <li>Deploy code that writes to both old and new columns.</li>
+                        <li>Backfill data into the new column.</li>
+                        <li>Deploy code that only writes to the new column and reads from it.</li>
+                        <li>Make the new column non-nullable.</li>
+                        <li>Drop the old column (if applicable).</li>
+                    </ol>
+                    <h3>Tooling</h3>
+                    <p>Use robust migration tools provided by your framework (e.g., Laravel Migrations) or specialized database migration tools.</p>
+                    <p>Careful planning and execution are key to successful database migrations in large applications.</p>
+                `
+            }
+        ];
+
+        // DOM elements
+        const blogDetailTitle = document.getElementById('blogDetailTitle');
+        const blogPostTitle = document.getElementById('blogPostTitle');
+        const blogPostExcerpt = document.getElementById('blogPostExcerpt');
+        const blogPostImage = document.getElementById('blogPostImage');
+        const blogPostCategory = document.getElementById('blogPostCategory');
+        const blogPostDate = document.getElementById('blogPostDate');
+        const blogPostReadTime = document.getElementById('blogPostReadTime');
+        const blogPostContent = document.getElementById('blogPostContent');
+        const blogDetailContainer = document.querySelector('.blog-detail-container');
+        const noResultsSection = document.getElementById('noResults');
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+
+        // Format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Render blog post details
+        function renderBlogPost() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = parseInt(urlParams.get('id'));
+
+            const post = blogPosts.find(p => p.id === postId);
+
+            if (post) {
+                blogDetailTitle.textContent = `${post.title} - Aadhar Gaur Blog`;
+                blogPostTitle.textContent = post.title;
+                blogPostExcerpt.textContent = post.excerpt;
+                blogPostImage.src = post.image;
+                blogPostCategory.textContent = post.category.toUpperCase();
+                blogPostDate.innerHTML = `<i class="far fa-calendar-alt"></i> ${formatDate(post.date)}`;
+                blogPostReadTime.innerHTML = `<i class="far fa-clock"></i> ${post.readTime}`;
+                blogPostContent.innerHTML = post.content;
+                blogDetailContainer.style.display = 'block';
+                noResultsSection.style.display = 'none';
+            } else {
+                blogDetailContainer.style.display = 'none';
+                noResultsSection.style.display = 'block';
+                blogDetailTitle.textContent = 'Blog Post Not Found - Aadhar Gaur Blog';
+            }
+        }
+
+        // Scroll to top button
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        scrollTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Init AOS and render post on load
+        window.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            });
+            renderBlogPost();
+        });
+    </script>
+</body>
+
+</html>

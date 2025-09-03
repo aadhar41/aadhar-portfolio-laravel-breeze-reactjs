@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadhar Gaur - Blog</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="assets/css/blog.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Aadhar Gaur</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="blog" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content">
+                    <h1>Tech Blog</h1>
+                    <p class="lead">Insights, tutorials, and thoughts on PHP development, Laravel, and modern web
+                        technologies
+                    </p>
+                    <p class="mb-4">Stay updated with the latest trends in backend development, best practices, and
+                        real-world
+                        solutions.</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div style="font-size: 8rem; opacity: 0.3;">
+                        <i class="fas fa-blog"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="search-filter-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                    <div class="search-box">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search articles...">
+                        <button class="search-btn" id="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="filter-tags" id="filterTags">
+                        <span class="filter-tag active" data-category="all">All</span>
+                        <span class="filter-tag" data-category="php">PHP</span>
+                        <span class="filter-tag" data-category="laravel">Laravel</span>
+                        <span class="filter-tag" data-category="database">Database</span>
+                        <span class="filter-tag" data-category="api">APIs</span>
+                        <span class="filter-tag" data-category="tips">Tips & Tricks</span>
+                        <span class="filter-tag" data-category="tutorial">Tutorials</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Latest Articles</h2>
+
+            <!-- Loading Animation -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Loading articles...</p>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="row" id="blogGrid">
+                <!-- Blog posts will be dynamically loaded here -->
+            </div>
+
+            <!-- No Results -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search-minus"></i>
+                <h4>No Articles Found</h4>
+                <p>Try adjusting your search terms or filters</p>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-wrapper" id="paginationWrapper">
+                <nav aria-label="Blog pagination">
+                    <ul class="pagination" id="pagination">
+                        <!-- Pagination will be dynamically generated -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h5 class="fw-bold mb-2 text-primary">Aadhar Gaur</h5>
+                    <p class="mb-0 text-secondary">Senior PHP Developer sharing knowledge and insights about web
+                        development.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <nav
+                        class="footer-nav mb-3 d-inline-flex flex-wrap gap-2 justify-content-lg-end justify-content-center">
+
+                        <a href="index.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Home</a>
+                        <a href="about.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">About</a>
+                        <a href="projects.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Projects</a>
+                        <a href="blog.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Blog</a>
+                        <a href="contact.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Contact</a>
+                    </nav>
+                    <div class="social-links">
+                        <a href="mailto:aadhar41@gmail.com" title="Email"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/aadhar-gaur" target="_blank" title="LinkedIn"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="tel:+917737138843" title="Phone"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://github.com/aadhar-gaur" target="_blank" title="GitHub"
+                            class="btn btn-outline-light btn-sm rounded-circle">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 small text-secondary">&copy; 2025 Aadhar Gaur. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/blog.js"></script>
+</body>
+
+</html>
