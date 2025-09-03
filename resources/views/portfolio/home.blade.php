@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aadhar Gaur - Senior PHP Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Aadhar Gaur</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content order-lg-1 order-2 text-center text-lg-start" data-aos="fade-right">
+                    <h1>Aadhar Gaur</h1>
+                    <p class="lead">Senior PHP Developer | Laravel | API Development | Frontend enthusiast</p>
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-3 mt-4">
+                        <a href="#about" class="btn btn-primary btn-lg">Learn More <i
+                                class="fas fa-arrow-down ms-2"></i></a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Contact Me <i
+                                class="fas fa-envelope ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image-container order-lg-2 order-1 text-center" data-aos="fade-left">
+                    <div class="hero-image-frame">
+                        <img data-src="assets/images/profile-pic.webp" alt="Aadhar Gaur"
+                            class="img-fluid rounded-circle hero-image lazyload">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-5 text-center mb-4 mb-lg-0" data-aos="fade-right">
+                    <img data-src="assets/images/aadhar-gaur-about.webp" class="img-fluid rounded about-img lazyload"
+                        alt="Aadhar Gaur">
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <p>Hello! I'm Aadhar Gaur, a passionate and experienced Senior PHP Developer with a strong focus
+                        on building robust, scalable, and efficient web applications. With 6+ years in the industry,
+                        I specialize in backend development using Laravel, creating powerful APIs, and optimizing
+                        database performance.</p>
+                    <p>My journey in web development began with a fascination for how things work behind the scenes.
+                        This curiosity led me to master PHP and its leading frameworks, allowing me to craft solutions
+                        that are not only functional but also maintainable and secure.</p>
+                    <p>I thrive in dynamic environments and enjoy tackling complex challenges. Whether it's designing
+                        new system architectures, integrating third-party services, or enhancing existing codebases,
+                        I'm always eager to contribute to impactful projects and continuously expand my skill set.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="info-list">
+                                <li><i class="fas fa-chevron-right icon-gradient"></i> <strong>Age:</strong> 29</li>
+                                <li><i class="fas fa-chevron-right icon-gradient"></i> <strong>Degree:</strong> Bachelor
+                                    of Technology</li>
+                                <li><i class="fas fa-chevron-right icon-gradient"></i> <strong>City:</strong> Jaipur,
+                                    India</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="info-list">
+                                <li><i class="fas fa-chevron-right icon-gradient"></i> <strong>Freelance:</strong>
+                                    Available</li>
+                                <li><i class="fas fa-chevron-right icon-gradient"></i> <strong>Email:</strong>
+                                    aadhar41@gmail.com</li>
+                                <li><i class="fas fa-chevron-right icon-gradient"></i> <strong>Phone:</strong> +91
+                                    7737138843</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="cv-download" class="section bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Download My Resume</h2>
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <p class="lead mb-4">
+                        Access my full professional resume for a comprehensive overview of my experience, skills, and
+                        qualifications.
+                    </p>
+                    <a href="assets/Aadhar_Gaur_CV.pdf" download="Aadhar_Gaur_CV.pdf" class="btn btn-lg btn-primary">
+                        <i class="fas fa-download me-2"></i> Download CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Skills</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="skill-group-title">Backend Development</div>
+                    <div class="skill-item">
+                        <span class="skill-name">PHP</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Laravel</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">RESTful APIs</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">MySQL</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 88%;" aria-valuenow="88"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Redis</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-left">
+                    <div class="skill-group-title">Frontend & Other</div>
+                    <div class="skill-item">
+                        <span class="skill-name">HTML & CSS</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript (jQuery, Vue.js basics)</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Git & GitHub</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Docker</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">AWS Basics</span>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="experience" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Experience</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="timeline">
+                        <div class="timeline-item" data-aos="fade-right">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content card">
+                                <h3>Senior PHP Developer</h3>
+                                <h4>Tech Solutions Inc.</h4>
+                                <span class="date"><i class="fas fa-calendar-alt me-2"></i> July 2021 - Present</span>
+                                <ul>
+                                    <li>Led backend development for scalable web applications using Laravel, ensuring
+                                        high performance and security.</li>
+                                    <li>Designed and implemented RESTful APIs for mobile and web frontends.</li>
+                                    <li>Optimized database queries and structures in MySQL, reducing load times by 30%.
+                                    </li>
+                                    <li>Mentored junior developers and conducted code reviews.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-aos="fade-left">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content card">
+                                <h3>PHP Developer</h3>
+                                <h4>Web Innovators Ltd.</h4>
+                                <span class="date"><i class="fas fa-calendar-alt me-2"></i> March 2019 - June
+                                    2021</span>
+                                <ul>
+                                    <li>Developed and maintained features for various web projects.</li>
+                                    <li>Collaborated with frontend developers to integrate API endpoints.</li>
+                                    <li>Assisted in debugging and troubleshooting production issues.</li>
+                                    <li>Contributed to improving code quality and development workflows.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-aos="fade-right">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content card">
+                                <h3>Junior Developer Intern</h3>
+                                <h4>Digital Minds Agency</h4>
+                                <span class="date"><i class="fas fa-calendar-alt me-2"></i> Sep 2018 - Feb 2019</span>
+                                <ul>
+                                    <li>Assisted senior developers in building web modules.</li>
+                                    <li>Learned best practices in PHP and database management.</li>
+                                    <li>Contributed to front-end tasks using HTML, CSS, and JavaScript.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Education</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="timeline">
+                        <div class="timeline-item" data-aos="fade-right">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content card">
+                                <h3>Bachelor of Technology in Computer Science</h3>
+                                <h4>Rajasthan Technical University</h4>
+                                <span class="date"><i class="fas fa-calendar-alt me-2"></i> 2015 - 2019</span>
+                                <p>Graduated with First Class Honors. Focused on software engineering, data
+                                    structures, algorithms, and web technologies.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-aos="fade-left">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content card">
+                                <h3>Higher Secondary Education</h3>
+                                <h4>City Public School</h4>
+                                <span class="date"><i class="fas fa-calendar-alt me-2"></i> 2013 - 2015</span>
+                                <p>Completed 12th grade with a focus on Physics, Chemistry, and Mathematics.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Latest Projects</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img data-src="assets/images/project-ecommerce.webp" alt="E-commerce Platform"
+                                class="lazyload">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category">Backend Development</div>
+                            <h3 class="project-title">E-commerce Platform Backend</h3>
+                            <div class="project-description">A robust e-commerce backend handling product catalogs,
+                                order management, payment gateways, and user authentication.</div>
+                            <div class="project-tech-tags">
+                                <span>Laravel</span><span>MySQL</span><span>Redis</span><span>REST API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt me-1"></i> Live Demo</a>
+                                <a href="#" target="_blank"><i class="fab fa-github me-1"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img data-src="assets/images/project-chat-api.webp" alt="Real-time Chat API"
+                                class="lazyload">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category">API Development</div>
+                            <h3 class="project-title">Real-time Chat Application API</h3>
+                            <div class="project-description">Developed a high-performance API and WebSocket server
+                                for a real-time chat application, supporting direct messages and group chats.</div>
+                            <div class="project-tech-tags">
+                                <span>PHP</span><span>WebSockets</span><span>Redis</span><span>Node.js</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt me-1"></i> Live Demo</a>
+                                <a href="#" target="_blank"><i class="fab fa-github me-1"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img data-src="assets/images/project-dashboard.webp" alt="Project Dashboard"
+                                class="lazyload">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category">Fullstack Web App</div>
+                            <h3 class="project-title">Project Management Dashboard</h3>
+                            <div class="project-description">A full-stack dashboard for managing projects, tasks,
+                                and team collaborations with a responsive UI.</div>
+                            <div class="project-tech-tags">
+                                <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>Bootstrap</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt me-1"></i> Live Demo</a>
+                                <a href="#" target="_blank"><i class="fab fa-github me-1"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+                <a href="projects.html" class="btn btn-secondary btn-lg">View All Projects <i
+                        class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Latest Blog Posts</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img data-src="assets/images/blog-laravel-api.webp" alt="Laravel API Development"
+                                class="lazyload">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar-alt"></i> May 25, 2024</span>
+                                <span><i class="fas fa-tag"></i> Laravel, API</span>
+                            </div>
+                            <h3 class="blog-title"><a href="blog-detail.html">Building RESTful APIs with Laravel: A
+                                    Comprehensive Guide</a></h3>
+                            <p class="blog-excerpt">Dive into the world of Laravel API development. Learn how to
+                                structure your routes, controllers, and resources for clean and efficient APIs.</p>
+                            <a href="blog-detail.html" class="read-more">Read More <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img data-src="assets/images/blog-docker.webp" alt="Docker for PHP" class="lazyload">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar-alt"></i> April 18, 2024</span>
+                                <span><i class="fas fa-tag"></i> Docker, DevOps</span>
+                            </div>
+                            <h3 class="blog-title"><a href="blog-detail.html">Demystifying Docker for PHP Developers: A
+                                    Beginner's Guide</a></h3>
+                            <p class="blog-excerpt">Understand the basics of Docker and how it can revolutionize your
+                                PHP development workflow. From setup to deployment.</p>
+                            <a href="blog-detail.html" class="read-more">Read More <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img data-src="assets/images/blog-eloquent.webp" alt="Eloquent Performance"
+                                class="lazyload">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="fas fa-calendar-alt"></i> March 10, 2024</span>
+                                <span><i class="fas fa-tag"></i> Laravel, Database</span>
+                            </div>
+                            <h3 class="blog-title"><a href="blog-detail.html">Eloquent Performance Tips: Speeding Up
+                                    Your
+                                    Laravel Queries</a></h3>
+                            <p class="blog-excerpt">Learn practical tips and tricks to optimize your Laravel Eloquent
+                                queries for better performance and faster application response times.</p>
+                            <a href="blog-detail.html" class="read-more">Read More <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="300">
+                <a href="blog.html" class="btn btn-secondary btn-lg">View All Posts <i
+                        class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="contact-info-card">
+                        <h4 class="mb-4 text-center">Contact Information</h4>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h6>Email</h6>
+                                <a href="mailto:aadhar41@gmail.com">aadhar41@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h6>Phone</h6>
+                                <a href="tel:+917737138843">+91 7737138843</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin-in"></i>
+                            <div>
+                                <h6>LinkedIn</h6>
+                                <a href="https://linkedin.com/in/aadhar-gaur" target="_blank"
+                                    rel="noopener noreferrer">linkedin.com/in/aadhar-gaur</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <h6>GitHub</h6>
+                                <a href="https://github.com/aadhar-gaur" target="_blank"
+                                    rel="noopener noreferrer">github.com/aadhar-gaur</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h6>Location</h6>
+                                <p>Jaipur, Rajasthan, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="contact-form-card">
+                        <h4 class="mb-4 text-center">Send Me a Message</h4>
+                        <form action="https://formspree.io/f/yourformid" method="POST">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required
+                                        placeholder="John Doe">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" class="form-control" id="email" name="_replyto" required
+                                        placeholder="john.doe@example.com">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" name="subject" required
+                                    placeholder="Regarding a project opportunity...">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required
+                                    placeholder="Type your message here..."></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane me-2"></i> Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h5>Aadhar Gaur</h5>
+                    <p class="mb-0">Senior PHP Developer sharing knowledge and insights about web development.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <div class="social-links mb-3">
+                        <a href="mailto:aadhar41@gmail.com" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/aadhar-gaur" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="tel:+917737138843" title="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://github.com/aadhar-gaur" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 Aadhar Gaur. All rights reserved. | Available for freelance and
+                        full-time opportunities</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Aadhar Gaur</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-color);
+            overflow-x: hidden;
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary-color) !important;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--primary-color) !important;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--bg-light) !important;
+            background: var(--gradient);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--bg-light);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="none"><path d="M0,0 L1000,0 L1000,80 Q500,120 0,80 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .lead {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        /* Project Detail Specifics */
+        .project-detail-main {
+            background: var(--bg-light);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 4rem;
+            margin-top: -60px;
+            /* Pulls content up into the hero */
+            position: relative;
+            z-index: 5;
+        }
+
+        .project-detail-main .project-title-heading {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .project-meta {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .project-meta span {
+            margin: 0 10px;
+        }
+
+        .project-main-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .project-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .project-content ul li {
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+            color: var(--primary-color);
+        }
+
+        .project-content ul li i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .project-tech-used .tech-item {
+            display: inline-block;
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 25px;
+            margin: 0 8px 10px 0;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .project-tech-used .tech-item:hover {
+            transform: translateY(-2px);
+            background: var(--gradient);
+            color: var(--bg-light);
+            border-color: transparent;
+        }
+
+        .project-links-group {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .project-links-group .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            min-width: 160px;
+        }
+
+        .project-links-group .btn-live {
+            background: var(--gradient);
+            color: var(--bg-light);
+            border: none;
+        }
+
+        .project-links-group .btn-live:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        }
+
+        .project-links-group .btn-github {
+            background: var(--bg-light);
+            color: var(--primary-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .project-links-group .btn-github:hover {
+            background: var(--secondary-color);
+            color: var(--bg-light);
+            border-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .back-to-projects-btn {
+            display: block;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .back-to-projects-btn a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-projects-btn a:hover {
+            color: var(--primary-color);
+        }
+
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: var(--bg-light);
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gradient);
+            color: var(--bg-light);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: var(--bg-light);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .lead {
+                font-size: 1.1rem;
+            }
+
+            .project-detail-main {
+                padding: 2rem;
+            }
+
+            .project-detail-main .project-title-heading {
+                font-size: 2rem;
+            }
+
+            .project-links-group .btn {
+                margin: 10px 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Aadhar Gaur</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 text-center hero-content">
+                    <h1 id="projectHeroTitle"></h1>
+                    <p class="lead" id="projectHeroLead"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pt-0">
+        <div class="container">
+            <div class="project-detail-main" data-aos="fade-up">
+                <h1 class="project-title-heading" id="projectTitle"></h1>
+                <div class="project-meta" id="projectMeta">
+                </div>
+
+                <img src="" alt="Project Main Image" class="img-fluid project-main-image" id="projectMainImage"
+                    data-aos="zoom-in">
+
+                <div class="project-content">
+                    <div class="row">
+                        <div class="col-lg-8" data-aos="fade-right" data-aos-delay="200">
+                            <h2>Project Overview</h2>
+                            <p id="projectOverview"></p>
+
+                            <h2>Key Features</h2>
+                            <ul id="projectFeatures">
+                            </ul>
+                        </div>
+                        <div class="col-lg-4" data-aos="fade-left" data-aos-delay="300">
+                            <h2>Technologies Used</h2>
+                            <div class="project-tech-used" id="projectTechUsed">
+                            </div>
+
+                            <h2>Role & Responsibilities</h2>
+                            <p id="projectRole"></p>
+                        </div>
+                    </div>
+
+                    <h2 data-aos="fade-up">Challenges & Solutions</h2>
+                    <p id="projectChallenges" data-aos="fade-up" data-aos-delay="100"></p>
+
+                    <h2 data-aos="fade-up">Learnings & Impact</h2>
+                    <p id="projectLearnings" data-aos="fade-up" data-aos-delay="100"></p>
+
+                    <div class="project-links-group" data-aos="fade-up" data-aos-delay="400">
+                        <a href="#" id="liveDemoBtn" target="_blank" rel="noopener noreferrer" class="btn btn-live">
+                            <i class="fas fa-external-link-alt me-2"></i> Live Demo
+                        </a>
+                        <a href="#" id="githubBtn" target="_blank" rel="noopener noreferrer" class="btn btn-github">
+                            <i class="fab fa-github me-2"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="back-to-projects-btn" data-aos="fade-up">
+                    <a href="projects.html"><i class="fas fa-arrow-left me-2"></i> Back to All Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h5 class="fw-bold mb-2 text-primary">Aadhar Gaur</h5>
+                    <p class="mb-0 text-secondary">Senior PHP Developer sharing knowledge and insights about web
+                        development.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <nav
+                        class="footer-nav mb-3 d-inline-flex flex-wrap gap-2 justify-content-lg-end justify-content-center">
+
+                        <a href="index.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Home</a>
+                        <a href="about.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">About</a>
+                        <a href="projects.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Projects</a>
+                        <a href="blog.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Blog</a>
+                        <a href="contact.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Contact</a>
+                    </nav>
+                    <div class="social-links">
+                        <a href="mailto:aadhar41@gmail.com" title="Email"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/aadhar-gaur" target="_blank" title="LinkedIn"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="tel:+917737138843" title="Phone"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://github.com/aadhar-gaur" target="_blank" title="GitHub"
+                            class="btn btn-outline-light btn-sm rounded-circle">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 small text-secondary">&copy; 2025 Aadhar Gaur. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Sample Project Data (in a real scenario, this would come from a backend/CMS based on ID)
+        // For demonstration, this page will always load this specific project.
+        const sampleProject = {
+            id: 1,
+            title: "Advanced E-commerce Backend System",
+            category: "Fullstack Development",
+            type: "Web Application",
+            date: "Jan 2024 - Apr 2024",
+            overview: "Designed and implemented a scalable and secure backend for a multi-vendor e-commerce platform. The system supports complex product management, real-time order processing, secure payment integrations, and robust user authentication, built for high performance and reliability.",
+            mainImage: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' fill='%23667eea'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='40' font-family='Arial'>E-commerce Project</text></svg>",
+            features: [
+                "Modular API design for frontend and mobile clients",
+                "Product catalog with dynamic attributes and variations",
+                "Secure user registration, login, and role-based access control",
+                "Real-time order tracking and fulfillment workflows",
+                "Integration with leading payment gateways (Stripe, PayPal)",
+                "Advanced search and filtering capabilities",
+                "Admin dashboard for comprehensive management",
+                "Automated email notifications for order updates"
+            ],
+            technologies: [
+                "PHP 8+", "Laravel (10)", "MySQL", "Redis", "RESTful API", "Docker", "AWS (EC2, S3, RDS)", "Git"
+            ],
+            role: "As the Senior Backend Developer, I led the architectural design, database schema, API development, and deployment strategies. I also mentored a team of junior developers, conducted code reviews, and ensured adherence to best practices and coding standards.",
+            challenges: "Optimizing the database for complex product searches and large order volumes was a significant challenge, mitigated by strategic indexing and Redis caching. Ensuring robust security for payment transactions and user data required meticulous attention to encryption, input validation, and API authentication.",
+            learnings: "This project deepened my expertise in building high-performance, fault-tolerant systems and distributed architectures. I gained hands-on experience with cloud deployment strategies on AWS and learned to manage complex project timelines and team collaborations effectively.",
+            liveLink: "#", // Placeholder for actual live demo URL
+            githubLink: "#" // Placeholder for actual GitHub repo URL
+        };
+
+        // Function to populate the project details page
+        function populateProjectDetails(project) {
+            // Hero section
+            document.getElementById('projectHeroTitle').innerText = project.title;
+            document.getElementById('projectHeroLead').innerText = `Category: ${project.category} | Type: ${project.type}`;
+
+            // Main details section
+            document.getElementById('projectTitle').innerText = project.title;
+            document.getElementById('projectMeta').innerHTML = `
+                <span><i class="fas fa-tag me-1"></i> ${project.category}</span>
+                <span><i class="fas fa-cubes me-1"></i> ${project.type}</span>
+                <span><i class="fas fa-calendar-alt me-1"></i> ${project.date}</span>
+            `;
+            document.getElementById('projectMainImage').src = project.mainImage;
+            document.getElementById('projectOverview').innerText = project.overview;
+
+            // Features
+            const featuresList = document.getElementById('projectFeatures');
+            featuresList.innerHTML = project.features.map(feature => `<li><i class="fas fa-check-circle"></i> ${feature}</li>`).join('');
+
+            // Technologies
+            const techUsedDiv = document.getElementById('projectTechUsed');
+            techUsedDiv.innerHTML = project.technologies.map(tech => `<span class="tech-item">${tech}</span>`).join('');
+
+            // Role, Challenges, Learnings
+            document.getElementById('projectRole').innerText = project.role;
+            document.getElementById('projectChallenges').innerText = project.challenges;
+            document.getElementById('projectLearnings').innerText = project.learnings;
+
+            // Links
+            document.getElementById('liveDemoBtn').href = project.liveLink;
+            document.getElementById('githubBtn').href = project.githubLink;
+        }
+
+        // Scroll to top button functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        scrollTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Initialize AOS and populate project details on load
+        window.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
+            });
+
+            // For this static page, we simply load the sampleProject data.
+            // In a dynamic application, you would parse a URL parameter (e.g., ?id=1)
+            // to fetch the specific project's data from a database or JSON file.
+            populateProjectDetails(sampleProject);
+        });
+    </script>
+</body>
+
+</html>

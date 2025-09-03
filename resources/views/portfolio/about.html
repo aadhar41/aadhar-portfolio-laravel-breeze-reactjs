@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Aadhar Gaur</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-color);
+            overflow-x: hidden;
+            /* Prevent horizontal scroll from AOS */
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary-color) !important;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--primary-color) !important;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--bg-light) !important;
+            background: var(--gradient);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: var(--bg-light);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="none"><path d="M0,0 L1000,0 L1000,80 Q500,120 0,80 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .lead {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* About Section Specifics */
+        .about-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-content ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .about-content ul li {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .about-content ul li i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        /* Skills Section (reused from index if needed, adjusted for this page) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            transform: translateX(-20px);
+            /* Initial state for animation */
+            opacity: 0;
+            /* Initial state for animation */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .skill-item i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            background: -webkit-linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0;
+        }
+
+        /* Education/Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            list-style: none;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--bg-light);
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            margin-bottom: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .timeline-item-content {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            width: 45%;
+            position: relative;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .timeline-item-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .timeline-item-content h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item-content h4 {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-item-content span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item-content p {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient);
+            border-radius: 50%;
+            left: 50%;
+            top: 20px;
+            margin-left: -10px;
+            z-index: 2;
+            box-shadow: 0 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        .timeline-item:nth-child(even) .timeline-item-content {
+            margin-left: 55%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-item-content {
+            margin-right: 55%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-item-content:before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            right: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid var(--bg-light);
+        }
+
+        .timeline-item:nth-child(even) .timeline-item-content:before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid var(--bg-light);
+        }
+
+
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: var(--bg-light);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-nav {
+            margin-bottom: 1rem;
+        }
+
+        .footer-link {
+            color: var(--bg-light);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--gradient);
+            color: var(--bg-light);
+            transform: translateY(-3px);
+        }
+
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: var(--bg-light);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .timeline:before {
+                left: 20px;
+            }
+
+            .timeline-item-content {
+                width: calc(100% - 70px);
+                margin-left: 70px !important;
+                margin-right: 0 !important;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-item-content:before {
+                border-left: none;
+                border-right: 10px solid var(--bg-light);
+                left: -10px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(even) .timeline-item-content:before {
+                border-right: 10px solid var(--bg-light);
+                left: -10px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .lead {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-image {
+                margin-bottom: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Aadhar Gaur</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12 text-center hero-content">
+                    <h1>About Aadhar Gaur</h1>
+                    <p class="lead">Senior PHP Developer | Crafting robust and scalable web solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section pt-0" id="about-content">
+        <div class="container">
+            <div class="row g-5 mt-1 align-items-center justify-content-center">
+                <div class="col-lg-5 text-center" data-aos="fade-right">
+                    <!-- <img src="https://placehold.co/400x400/667eea/ffffff?text=Aadhar+Gaur&font=poppins" alt="Aadhar Gaur" class="img-fluid about-image"> -->
+                    <img src="./assets/img/AboutAadhar.jpg" alt="Aadhar Gaur" class="img-fluid about-image">
+                    <p class="mt-3 text-muted">"Coding is not just a job; it's a passion for solving complex problems."
+                    </p>
+                </div>
+                <div class="col-lg-7 mt-4" data-aos="fade-left">
+                    <div class="about-content">
+                        <h2>My Journey as a Developer</h2>
+                        <p>
+                            With over 8 years of experience in web development, I am a seasoned Senior PHP Developer
+                            specializing in crafting robust, scalable, and high-performance web applications. My
+                            expertise lies primarily in the Laravel framework, complemented by a strong understanding of
+                            front-end technologies and database optimization.
+                        </p>
+                        <p>
+                            I thrive on transforming complex business requirements into elegant and efficient technical
+                            solutions. My career has been driven by a continuous pursuit of learning and adopting the
+                            latest technologies and best practices in the web development ecosystem.
+                        </p>
+                        <p>
+                            I'm passionate about clean code, software architecture, and building user-centric
+                            applications. Beyond coding, I enjoy mentoring junior developers and contributing to the
+                            developer community through articles and discussions.
+                        </p>
+                        <h3 class="mt-4">Why Work With Me?</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> **Expertise:** Deep knowledge in PHP, Laravel,
+                                MySQL, and API development.</li>
+                            <li><i class="fas fa-check-circle"></i> **Problem Solver:** A knack for debugging and
+                                optimizing complex systems.</li>
+                            <li><i class="fas fa-check-circle"></i> **Reliability:** Committed to delivering
+                                high-quality, well-tested code on time.</li>
+                            <li><i class="fas fa-check-circle"></i> **Innovation:** Always exploring new tools and
+                                techniques to improve development workflows.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-white" id="skills-detail">
+        <div class="container">
+            <h2 class="section-title">My Core Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fab fa-php"></i>
+                    <h4>PHP</h4>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fab fa-laravel"></i>
+                    <h4>Laravel</h4>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-database"></i>
+                    <h4>MySQL</h4>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fab fa-js-square"></i>
+                    <h4>JavaScript</h4>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fab fa-react"></i>
+                    <h4>ReactJS (Basics)</h4>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="600">
+                    <i class="fab fa-bootstrap"></i>
+                    <h4>Bootstrap</h4>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="700">
+                    <i class="fas fa-code-branch"></i>
+                    <h4>Git/GitHub</h4>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="800">
+                    <i class="fab fa-docker"></i>
+                    <h4>Docker</h4>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="900">
+                    <i class="fas fa-cloud"></i>
+                    <h4>AWS (Basics)</h4>
+                </div>
+                <div class="skill-item" data-aos="fade-up" data-aos-delay="1000">
+                    <i class="fas fa-server"></i>
+                    <h4>API Development</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="experience-education">
+        <div class="container">
+            <h2 class="section-title">Experience & Education</h2>
+            <ul class="timeline">
+                <li class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-item-content">
+                        <h3>Senior PHP Developer</h3>
+                        <h4>Company Name XYZ</h4>
+                        <span>Jan 2022 - Present</span>
+                        <p>Leading back-end development for large-scale web applications, optimizing database
+                            performance, and implementing robust API solutions.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </li>
+                <li class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-item-content">
+                        <h3>PHP Developer</h3>
+                        <h4>Company Name ABC</h4>
+                        <span>Mar 2018 - Dec 2021</span>
+                        <p>Developed and maintained web applications using Laravel, integrated third-party services, and
+                            contributed to architectural decisions.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </li>
+                <li class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-item-content">
+                        <h3>Bachelor of Technology in Computer Science</h3>
+                        <h4>University Name</h4>
+                        <span>2014 - 2018</span>
+                        <p>Graduated with honors, focusing on software engineering principles, data structures, and
+                            algorithms.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </li>
+                <li class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-item-content">
+                        <h3>Web Development Intern</h3>
+                        <h4>Startup Tech Solutions</h4>
+                        <span>June 2017 - Aug 2017</span>
+                        <p>Assisted in front-end and back-end development of a client project, gaining hands-on
+                            experience with HTML, CSS, JavaScript, and basic PHP.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <footer class="footer bg-dark text-light pt-5 pb-3">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h5 class="fw-bold mb-2 text-primary">Aadhar Gaur</h5>
+                    <p class="mb-0 text-secondary">Senior PHP Developer sharing knowledge and insights about web
+                        development.</p>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <nav
+                        class="footer-nav mb-3 d-inline-flex flex-wrap gap-2 justify-content-lg-end justify-content-center">
+
+                        <a href="index.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Home</a>
+                        <a href="about.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">About</a>
+                        <a href="projects.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Projects</a>
+                        <a href="blog.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Blog</a>
+                        <a href="contact.html"
+                            class="footer-link px-3 py-1 rounded-pill text-light text-decoration-none border border-secondary border-opacity-25 transition-all"
+                            style="background:rgba(255,255,255,0.03);">Contact</a>
+                    </nav>
+                    <div class="social-links">
+                        <a href="mailto:aadhar41@gmail.com" title="Email"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/aadhar-gaur" target="_blank" title="LinkedIn"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="tel:+917737138843" title="Phone"
+                            class="btn btn-outline-light btn-sm rounded-circle me-2">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://github.com/aadhar-gaur" target="_blank" title="GitHub"
+                            class="btn btn-outline-light btn-sm rounded-circle">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 small text-secondary">&copy; 2025 Aadhar Gaur. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Scroll to top button functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        scrollTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Initialize AOS
+        window.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true, // Animations only happen once
+                mirror: false // Elements will not animate out while scrolling past them
+            });
+        });
+
+        // Optional: Animate skills on scroll (if using a separate skills section on this page)
+        // You can uncomment and adapt this if you have a skills section separate from the About Me text
+        // function animateSkills() {
+        //     const skillItems = document.querySelectorAll('.skill-item');
+        //     skillItems.forEach((item, index) => {
+        //         setTimeout(() => {
+        //             item.style.transform = 'translateX(0)';
+        //             item.style.opacity = '1';
+        //         }, index * 100);
+        //     });
+        // }
+
+        // const skillsSection = document.getElementById('skills-detail'); // Use the ID for skills section on this page
+        // if (skillsSection) {
+        //     const observer = new IntersectionObserver((entries) => {
+        //         entries.forEach(entry => {
+        //             if (entry.isIntersecting) {
+        //                 animateSkills();
+        //                 observer.unobserve(entry.target);
+        //             }
+        //         });
+        //     }, { threshold: 0.5 }); // Adjust threshold as needed
+
+        //     observer.observe(skillsSection);
+        // }
+    </script>
+</body>
+
+</html>

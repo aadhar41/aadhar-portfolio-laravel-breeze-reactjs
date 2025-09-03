@@ -17,13 +17,14 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Portfolio/Home', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -35,4 +36,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/portfolio', function () {
+    return view('portfolio.home');
+});
+
+Route::get('/portfolio/about', function () {
+    return view('portfolio.about');
+});
+
+Route::get('/portfolio/projects', function () {
+    return view('portfolio.projects');
+});
+// Add more routes as needed
+
+// ...existing code...
+require __DIR__ . '/auth.php';
